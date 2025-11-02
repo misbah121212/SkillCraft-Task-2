@@ -1,29 +1,15 @@
-📘 Project Title
+🧠 TASK 2 – Mall Customer Segmentation using K-Means Clustering
+📘 Project Overview
 
-Mall Customer Segmentation using K-Means Clustering
-(SkillCraft Technology Internship – Task 02)
+This project demonstrates the use of K-Means Clustering, an unsupervised machine learning algorithm, to segment mall customers based on their purchasing behavior.
+By analyzing parameters such as Annual Income and Spending Score, the model identifies distinct customer groups to help retail businesses design targeted marketing strategies, improve engagement, and optimize sales performance.
 
-🧩 Project Overview
+This project is developed as part of the SkillCraft Technology Machine Learning Internship (Task 2).
 
-This project focuses on applying K-Means Clustering, an unsupervised machine learning algorithm, to segment customers of a retail store based on their purchasing behavior.
+🎯 Objective
 
-By analyzing data such as customers’ Annual Income and Spending Score, we can identify distinct customer groups or segments. These segments help retail stores in creating personalized marketing strategies, improving customer experience, and boosting sales.
-
-This task is part of SkillCraft Technology’s Machine Learning Internship program.
-
-🧠 Objective
-
-To create a K-Means clustering algorithm that groups mall customers into meaningful clusters based on their purchase history.
-
-Each cluster represents a distinct type of customer — for example:
-
-High Income, High Spending
-
-Low Income, Low Spending
-
-High Income, Low Spending
-
-Average Income, Average Spending, etc.
+The main goal of this project is to group customers of a retail store into meaningful clusters based on their income and spending patterns.
+Each cluster represents a unique type of customer — such as high-income high-spenders, low-income low-spenders, and moderate buyers — providing insights into customer behavior for better business decisions.
 
 📂 Dataset Details
 
@@ -32,181 +18,126 @@ Source: Kaggle – Customer Segmentation Dataset
 
 File Name: Mall_Customers.csv
 
-📊 Dataset Columns:
-Column Name	Description
-CustomerID	Unique ID assigned to each customer
-Gender	Gender of the customer
-Age	Age of the customer
-Annual Income (k$)	Annual income of the customer in thousand dollars
-Spending Score (1-100)	Score assigned by the mall based on customer behavior and spending nature
+📊 Columns:
+
+CustomerID – Unique ID assigned to each customer
+
+Gender – Male or Female
+
+Age – Age of the customer
+
+Annual Income (k$) – Customer’s annual income in thousand dollars
+
+Spending Score (1–100) – Score assigned by the mall based on customer’s behavior and spending nature
+
 ⚙️ Features Used for Clustering:
 
 Annual Income (k$)
 
 Spending Score (1–100)
 
-These two features are chosen because they best represent the customers’ purchasing capacity and behavior.
-
-💻 Tools and Technologies Used
+🧰 Technologies and Tools Used
 Tool / Library	Purpose
-Python 3.10+	Programming Language
-VS Code	Development Environment
-pandas	Data manipulation and analysis
-numpy	Numerical computation
-matplotlib / seaborn	Data visualization
-scikit-learn	Machine Learning model (K-Means)
-streamlit	Web App Framework
+🐍 Python 3	Programming Language
+💻 VS Code	Code Editor
+📦 pandas, numpy	Data Handling & Preprocessing
+📈 matplotlib, seaborn	Data Visualization
+🧮 scikit-learn	K-Means Model Implementation
+🌐 streamlit	Web Application Interface
 🧱 Project Structure
 MallCustomerClustering/
 │
-├── app.py                   → Streamlit web app
-├── kmeans_model.py          → Core ML model script
+├── app.py                   → Streamlit web application
+├── kmeans_model.py          → Core ML script for K-Means
 ├── Mall_Customers.csv       → Dataset file
-└── clustered_customers.csv  → Output after clustering
+└── clustered_customers.csv  → Output file after clustering
 
-⚙️ Installation and Setup
+⚙️ Installation and Setup Steps
 
-Create a Project Folder
+Create a Folder
 
 MallCustomerClustering
 
 
 Install Required Libraries
-Open terminal and run:
 
 pip install pandas numpy matplotlib seaborn scikit-learn streamlit
 
 
 Add Files
 
-Place Mall_Customers.csv inside your project folder.
+Place the Mall_Customers.csv dataset in the folder.
 
-Add both app.py and kmeans_model.py files.
+Add kmeans_model.py and app.py.
 
-Run Model Script (optional)
+Run the Model Script
 
 python kmeans_model.py
 
 
-This will:
-
-Load and preprocess data
-
-Plot Elbow Method
-
-Train K-Means
-
-Save results to clustered_customers.csv
-
-Run the Streamlit App
+Launch the Streamlit App
 
 streamlit run app.py
 
 
-Open the Local Webpage
-After running, Streamlit will give a link like:
+Open Browser
+Visit the local URL (usually http://localhost:8501/) to interact with the app.
 
-http://localhost:8501/
+🧩 Working Process
 
+Data Loading – The dataset is loaded using pandas for analysis.
 
-Open this in your browser.
+Feature Selection – Annual Income and Spending Score are chosen for clustering.
 
-📊 Working Process
-Step 1 – Load the Data
+Scaling – StandardScaler is applied to normalize feature values.
 
-The dataset is loaded using pandas. Initial exploration helps to understand data patterns, missing values, and data distribution.
+Elbow Method – Used to find the optimal number of clusters (k).
 
-Step 2 – Feature Selection
+Model Training – K-Means is trained on the selected features.
 
-The two most significant features are:
+Visualization – Clusters are visualized using scatter plots.
 
-Annual Income (k$)
+Streamlit Integration – App displays dataset, elbow graph, and clusters interactively.
 
-Spending Score (1-100)
+📊 Results and Insights
 
-These are extracted for clustering.
-
-Step 3 – Feature Scaling
-
-Since K-Means is a distance-based algorithm, all features are standardized using StandardScaler().
-
-Step 4 – Finding Optimal Clusters (Elbow Method)
-
-We run K-Means with different k values (1–10) and plot Inertia vs k.
-The point where the graph starts bending (“elbow”) is the optimal number of clusters.
-
-Step 5 – Training the K-Means Model
-
-After determining the optimal number of clusters (usually k=5), the final K-Means model is trained and labels are assigned to each customer.
-
-Step 6 – Visualizing the Clusters
-
-A scatter plot is generated using seaborn to visualize the clusters:
-
-X-axis → Annual Income
-
-Y-axis → Spending Score
-
-Colors → Cluster groups
-
-Step 7 – Streamlit Web App
-
-The app displays:
-
-The raw dataset
-
-Elbow Method graph
-
-Cluster visualization
-
-Downloadable clustered results (clustered_customers.csv)
-
-🖥️ Output and Results
-
-Elbow Method Graph:
-Helps identify the ideal number of clusters (usually k = 5).
-
-Cluster Visualization Plot:
-Displays customer groups in different colors.
-
-Clustered Data:
-File clustered_customers.csv contains the cluster label for each customer.
-
-Example Cluster Insights:
+The project identifies 5 key customer segments based on their spending habits and income levels.
+Each cluster represents a distinct type of shopper:
 
 Cluster	Type of Customer	Behavior
-0	High Income – High Spending	Premium, Loyal Shoppers
+0	High Income – High Spending	Loyal Premium Shoppers
 1	Low Income – Low Spending	Budget Shoppers
-2	Average Income – Moderate Spending	Occasional Buyers
+2	Average Income – Moderate Spending	Regular Buyers
 3	High Income – Low Spending	Cautious Spenders
-4	Low Income – High Spending	Impulsive Buyers
+4	Low Income – High Spending	Impulsive Shoppers
 🌐 Streamlit App Features
 
-Display raw dataset.
+📄 Display raw dataset
 
-Interactive Elbow graph to find best k.
+📊 Elbow graph for finding best k
 
-User can select number of clusters via slider.
+🎚️ Interactive slider to select number of clusters
 
-Cluster visualization updates automatically.
+🎨 Live cluster visualization
 
-Download option for clustered results.
+💾 Download clustered results
 
 🧾 Conclusion
 
-This project successfully demonstrates unsupervised learning using K-Means Clustering to group customers based on purchasing patterns.
+This project effectively demonstrates how K-Means Clustering can be used to analyze and group customers based on purchasing patterns.
+The insights derived from this model can help businesses:
 
-Through visualization and cluster analysis:
+Identify premium and budget customers
 
-Businesses can target each customer group effectively.
+Personalize marketing strategies
 
-Marketing strategies can be customized to improve engagement and sales.
+Improve customer satisfaction and retention
 
-Thus, this model helps in data-driven decision-making for retail businesses.
+Through the use of machine learning and data visualization, this project showcases the power of unsupervised learning in business analytics.
 
 👩‍💻 Developer Information
 
 Name: Misba Sikandar
 Internship: SkillCraft Technology – Machine Learning Internship
-Task: Task 02 – Mall Customer Segmentation using K-Means Clustering
-Tools Used: Python, Scikit-learn, Streamlit, Seaborn, Matplotlib
+Task: Task 2 – Mall Customer Segmentation using K-Means Clustering
+Tools Used: Python, Scikit-learn, Streamlit, Matplotlib, Seaborn
